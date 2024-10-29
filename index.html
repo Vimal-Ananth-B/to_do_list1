@@ -1,0 +1,143 @@
+<!-- TO-DO-LIST -->
+<body>
+    <div id="div">
+        <h1>Your's TO-DO-LIST</h1>
+        <input id="ip1">
+        <button id="addbtn" onclick="addElement()">ADD</button>
+    </div>
+        <ol id="div2">
+
+        </ol>
+  </body>
+  <style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #6a11cb, #2575fc); /* Gradient background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+#div {
+    display: flex;
+    flex-direction: column; /* Stacks elements vertically */
+    gap: 60px; /* Sets vertical gap between elements */
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    max-width: 700px;
+    height: 500px; /* Adjusts height automatically based on content */
+    padding: 100px 20px;
+    background-color: #ffffff; /* White background for the main container */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    color: #6a11cb; /* Color for the heading */
+    margin-bottom: 20px; /* Space below the heading */
+    font-size: 60px;
+    font-variant: small-caps;
+    font-weight: bolder; /* Heading font size */
+}
+
+#ip1 {
+    width: 90%;
+    height:100%;
+    font-size: 70px;
+    padding: 10px;
+    border: 5px solid #007bff;
+    border-radius: 5px;
+    outline: none;
+    transition: 0.3s;
+}
+
+#ip1:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+button {
+    background-color: #6a11cb;
+    font-size: 40px;
+    font-variant: small-caps;
+    font-weight: bolder;
+    width: 50%;
+    color: #ffffff;
+    border: none;
+    padding: 20px 15px;
+    border-radius: 5px;
+    margin: 10px 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+#div2 {
+    list-style-type: none;
+    margin-top: 20px;
+    padding: 0;
+}
+
+#div2 li {
+    background-color: #f9f9f9;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 60px;
+    font-variant: small-caps;
+    color: #6a11cb;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+#div2 li button {
+    background-color: #e3342f;
+    padding: 5px 10px;
+    font-size: 40px;
+    width: 100%;
+}
+
+#div2 li button:hover {
+    background-color: #c82333;
+}
+
+#div2 li:hover {
+    background-color: #f1f1f1;
+    transform: translateY(-2px);
+}
+  </style>
+  <script>
+        function addElement()
+        {
+            var inpOne=document.getElementById("ip1");
+            var ele=document.createElement("li");
+            var divElements=document.querySelector("#div2");
+            ele.innerHTML=inpOne.value + "<button onclick='removeElement(event)'>DELETE</button>";
+            divElements.append(ele);
+            inpOne.value=' ';
+        }
+        function removeElement(event)
+        {
+            event.target.parentElement.remove();
+        }
+  </script>
